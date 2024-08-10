@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Example</title>
+  <style>
+    /* Basic spinner styling */
+    .spinner {
+      border: 16px solid #f3f3f3; /* Light grey */
+      border-top: 16px solid #3b0b4e; /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      z-index: 1000; /* Ensure the spinner is on top */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Disable interaction with the dropdown when loading */
+    .disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* Ensure the overlay covers the entire screen */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      display: none; /* Initially hidden */
+      justify-content: center;
+      align-items: center;
+      z-index: 999; /* Ensure the overlay is on top */
+    }
+
+    .overlay.visible {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+    <div class="spinner" id="spinner"></div>
+  </div>
+  <select id="firstDropDown" class="disabled">
+    <option value="">Select an option</option>
+  </select>
+  <select id="dropdown" class="disabled">
+    <option value="">Select an option</option>
+  </select>
+
+
+  <!-- Include the external JavaScript file -->
+  <script src="main.js"></script>
+</body>
+</html>
